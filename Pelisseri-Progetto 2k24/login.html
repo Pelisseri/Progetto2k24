@@ -1,0 +1,89 @@
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script type="application/javascript" src="index.js"></script>
+    <!-- <script type="application/javascript" src="axios@1.1.2.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    </head>
+    <body>
+        <div class="center-container">
+            <h1>Benvenuto!</h1>
+            <h3>Comincia la tua esperienza su Shreddiet®</h3>
+            <form>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="nome" placeholder="Nome"> 
+                  <!-- <label for="cmbEta">Select an Option:</label> -->
+                  <select id="cmbEta">
+                    <option disabled selected value="">Età</option>
+                  </select>         
+                </div>
+                <button type="button" class="btn btn-primary" id="accedi">Avanti</button>
+            </form>
+        </div>
+    </body>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('img/sfondo.jpg'); 
+            background-size: cover;
+            background-position: center;
+            font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .center-container {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            /*opacity: 0;*/
+        }
+        .center-container h3 {
+            font-style: italic;
+        }
+
+        .error {
+            border: 3px solid red;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 10px;
+            position: relative;
+        }
+
+        /*select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>') no-repeat right center / 1em auto;
+            padding-right: 1.5em; 
+        }*/
+
+        label {
+            position: absolute;
+            top: 0;
+            left: 400px;
+            pointer-events: none; /* Allow clicking through the label */
+        }
+
+        @keyframes popUp {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</html>
