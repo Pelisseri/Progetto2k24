@@ -1,0 +1,57 @@
+[
+    {
+        "nome": "Curl bilanciere",
+        "focus": "bicipiti",
+        "tutorial": "Tieni il bilanciere con le mani alla larghezza delle spalle. Con i gomiti vicino al corpo, solleva lentamente il bilanciere verso le spalle, mantenendo i gomiti fissi. Abbassa il bilanciere lentamente e controllatamente fino alla posizione di partenza."
+    },
+    {
+        "nome": "Curl manubri",
+        "focus": "bicipiti",
+        "tutorial": "Impugna un manubrio in ciascuna mano, con i gomiti vicino al corpo. Solleva lentamente i manubri verso le spalle, mantenendo i gomiti fissi. Abbassa i manubri lentamente e controllatamente fino alla posizione di partenza."
+    },
+    {
+        "nome": "Curl su panca inclinata",
+        "focus": "bicipiti",
+        "tutorial": "Sdraiati su una panca inclinata con un manubrio in ciascuna mano. Solleva lentamente i manubri verso le spalle, mantenendo i gomiti fissi. Abbassa i manubri lentamente e controllatamente fino alla posizione di partenza."
+    },
+    {
+        "nome": "Spider curl",
+        "focus": "bicipiti",
+        "tutorial": "Sdraiati su una panca inclinata, lascia pendere le braccia in avanti. Con un manubrio in ciascuna mano, solleva lentamente i manubri verso le spalle, mantenendo i gomiti fissi. Abbassa i manubri lentamente e controllatamente fino alla posizione di partenza."
+    },
+    {
+        "nome": "Hammer curl",
+        "focus": "bicipiti",
+        "tutorial": "Impugna un manubrio in ciascuna mano, con i palmi rivolti verso l'interno. Solleva lentamente i manubri verso le spalle, mantenendo i gomiti fissi. Abbassa i manubri lentamente e controllatamente fino alla posizione di partenza."
+    },
+    {
+        "nome": "Curl ai cavi",
+        "focus": "bicipiti",
+        "tutorial": "Impugna le impugnature del cavo con le braccia distese. Con i gomiti vicino al corpo, solleva lentamente le mani verso le spalle, mantenendo i gomiti fissi. Abbassa lentamente e controllatamente le mani fino alla posizione di partenza."
+    },
+    {
+        "nome": "French press bilanciere",
+        "focus": "tricipiti",
+        "tutorial": "Sdraiati su una panca con un bilanciere sopra il petto. Con i gomiti rivolti verso il soffitto, solleva lentamente il bilanciere verso l'alto, estendendo completamente le braccia. Abbassa il bilanciere lentamente e controllatamente fino alla posizione di partenza."
+    },
+    {
+        "nome": "French press manubri",
+        "focus": "tricipiti",
+        "tutorial": "Sdraiati su una panca con un manubrio sopra il petto. Con i gomiti rivolti verso il soffitto, solleva lentamente i manubri verso l'alto, estendendo completamente le braccia. Abbassa i manubri lentamente e controllatamente fino alla posizione di partenza."
+    },
+    {
+        "nome": "Dips",
+        "focus": "tricipiti",
+        "tutorial": "Aggrappati a due barre parallele con le braccia estese. Abbassa lentamente il corpo piegando i gomiti fino a un angolo di circa 90 gradi. Spingi il corpo verso l'alto fino a estendere completamente le braccia. Ripeti il movimento."
+    },
+    {
+        "nome": "Triceps pushdown",
+        "focus": "tricipiti",
+        "tutorial": "Impugna l'impugnatura del cavo con le braccia distese. Spingi l'impugnatura verso il basso estendendo completamente le braccia. Controlla il movimento durante la risalita dell'impugnatura."
+    },
+    {
+        "nome": "Diamond pushups",
+        "focus": "tricipiti",
+        "tutorial": "Assumi la posizione delle flessioni con le mani vicine formando un diamante con le dita. Abbassa il corpo verso il pavimento piegando i gomiti. Spingi il corpo verso l'alto fino a estendere completamente le braccia. Ripeti il movimento."
+    }
+]
