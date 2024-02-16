@@ -5,6 +5,8 @@ window.onload=function() {
     let _h2=$('#h2')
     let _valuePeso=$('#valuePeso')
     let _valueAltezza=$('#valueAltezza')
+    let _divGPT=$('#divGPT')
+    let _divEsercizi=$('#divEsercizi').hide()
     let sex, height, weight
 
     $('.center-container').css("animation", "popUp 0.5s ease")
@@ -83,5 +85,36 @@ window.onload=function() {
         let percent = (slider.val() - slider.attr("min")) / (slider.attr("max") - slider.attr("min")) * 100
         let newPosition = percent + "%"
         val.css("margin-left", newPosition)
+    }
+
+    $('#accedi3').css("opacity", 0.5)
+
+    _divGPT.children("textarea").on("keyup", function() {
+        $('#accedi3').css("opacity", 1).on("click", function() {
+            _divGPT.hide()
+            _divEsercizi.show()
+            for(let i=0; i<5; i++)
+                appendCard()
+        })
+    })
+
+    function appendCard() {
+        // Creazione di una colonna con classe "col-md-4" all'interno dell'elemento con id "day1"
+        let _col = $('<div>').addClass("col-md-4").appendTo($('#day1'));
+
+        // Creazione di un elemento div con classe "card" e aggiunta all'interno della colonna
+        let _card = $('<div>').addClass("card").appendTo(_col);
+
+        // Creazione di un'immagine con classe "card-img-top" e definizione del percorso della sorgente (src)
+        $('<img>').prop("src", "exercises/mia.jpg").addClass("card-img-top").appendTo(_card);
+
+        // Creazione di un elemento div con classe "card-body" e aggiunta all'interno della card
+        let _body = $('<div>').addClass("card-body").appendTo(_card);
+
+        // Creazione di un titolo h5 con testo "Titolo" e classe "card-title", e aggiunta all'interno del corpo della card
+        $('<h5>').text("Titolo").addClass("card-title").appendTo(_body);
+
+        // Creazione di un paragrafo con testo "Testo" e classe "card-text", e aggiunta all'interno del corpo della card
+        $('<p>').text("Testo").addClass("card-text").appendTo(_body);
     }
 }
