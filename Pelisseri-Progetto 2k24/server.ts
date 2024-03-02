@@ -10,6 +10,7 @@ _dotenv.config({ "path": ".env" });
 
 // Variabili relative a MongoDB ed Express
 import { MongoClient, ObjectId } from "mongodb";
+import path from "path";
 const DBNAME = process.env.DBNAME;
 const connectionString: string = process.env.connectionStringAtlas;
 const app = _express();
@@ -79,6 +80,10 @@ app.use("/", _cors(corsOptions));
 //********************************************************************************************//
 // Routes finali di risposta al client
 //********************************************************************************************//
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'static', 'login.html'));
+});
 
 app.get("/api/getScheda/:collection", async (req, res, next) => {
     let selectedCollection = req["params"].collection;

@@ -101,10 +101,12 @@ window.onload=function() {
         let rq=inviaRichiesta("GET", `/api/getScheda/petto`)
 		rq.then((response)=>{
             console.log(response.data)
+            for(let exercise of response.data)
+                appendCard(exercise)
         })
     }
 
-    function appendCard() {
+    function appendCard(exercise) {
         // Creazione di una colonna con classe "col-md-4" all'interno dell'elemento con id "day1"
         let _col = $('<div>').addClass("col-md-4 mb-4").appendTo($('#day1')); // Aggiunta della classe "mb-4" per lo spazio tra le colonne
     
@@ -112,13 +114,13 @@ window.onload=function() {
         let _card = $('<div>').addClass("card").appendTo(_col);
     
         // Creazione di un'immagine con classe "card-img-top" e definizione del percorso della sorgente (src)
-        $('<img>').prop("src", "exercises/mia.jpg").addClass("card-img-top").appendTo(_card);
+        $('<img>').prop("src", "img/mia.jpg").addClass("card-img-top").appendTo(_card);
     
         // Creazione di un elemento div con classe "card-body" e aggiunta all'interno della card
         let _body = $('<div>').addClass("card-body").appendTo(_card);
     
         // Creazione di un titolo h5 con testo "Titolo" e classe "card-title", e aggiunta all'interno del corpo della card
-        $('<h5>').text("Titolo").addClass("card-title").appendTo(_body);
+        $('<h5>').text(exercise.nome).addClass("card-title").appendTo(_body);
     
         // Creazione di un paragrafo con testo "Testo" e classe "card-text", e aggiunta all'interno del corpo della card
         $('<p>').text("Testo").addClass("card-text").appendTo(_body);
