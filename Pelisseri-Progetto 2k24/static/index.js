@@ -14,7 +14,6 @@ window.onload=function() {
     sliderUpdate($('#sliderPeso'), _valuePeso, "kg")
     sliderUpdate($('#sliderAltezza'), _valueAltezza, "cm")
 
-    _cmbEta.prop("selectedIndex", "-1")
     for(let i=18; i<61; i++)
         $('<option>').text(i).appendTo(_cmbEta)
     let getNome=localStorage.getItem("localName")
@@ -123,6 +122,6 @@ window.onload=function() {
         $('<h5>').text(exercise.nome).addClass("card-title").appendTo(_body);
     
         // Creazione di un paragrafo con testo "Testo" e classe "card-text", e aggiunta all'interno del corpo della card
-        $('<p>').text("Testo").addClass("card-text").appendTo(_body);
+        $('<p>').text(exercise.tutorial).addClass("card-text").addClass("expandable-text").attr("data-max-length", 50).appendTo(_body)
     }
 }
