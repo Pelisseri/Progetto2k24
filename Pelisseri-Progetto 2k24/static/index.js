@@ -122,6 +122,7 @@ window.onload=function() {
         $('<h5>').text(exercise.nome).addClass("card-title").appendTo(_body);
     
         // Creazione di un paragrafo con testo "Testo" e classe "card-text", e aggiunta all'interno del corpo della card
-        $('<p>').text(exercise.tutorial).addClass("card-text").addClass("expandable-text").attr("data-max-length", 50).appendTo(_body)
+        let text=exercise.tutorial.substring(0, 40)
+        $('<small>').text(text).addClass("card-text").appendTo(_body)
     }
 }
