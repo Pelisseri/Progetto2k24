@@ -124,5 +124,12 @@ window.onload=function() {
         // Creazione di un paragrafo con testo "Testo" e classe "card-text", e aggiunta all'interno del corpo della card
         let text=exercise.tutorial.substring(0, 40)
         $('<small>').text(text).addClass("card-text").appendTo(_body)
+        $('<small>').css("color", "grey").text(" ...altro").on("click", function() {
+            Swal.fire({
+                title: 'details'
+                /*icon: 'error',
+                confirmButtonText: 'OK'*/
+            })}
+        ).appendTo(_body)
     }
 }
