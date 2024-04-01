@@ -11,6 +11,17 @@ window.onload=function() {
 
     $('.center-container').css("animation", "popUp 0.5s ease")
 
+    $('#login').on("click", function() {
+        Swal.fire({
+            title: 'Log In <br><br> <img src="img/login.jpg" class="loginImg">',
+            html: `
+                <input id="username" class="swal2-input" placeholder="Username">
+                <input id="password" type="password" class="swal2-input" placeholder="Password">
+                `,
+            confirmButtonText: 'OK'
+        });
+    })
+
     sliderUpdate($('#sliderPeso'), _valuePeso, "kg")
     sliderUpdate($('#sliderAltezza'), _valueAltezza, "cm")
 
@@ -82,8 +93,8 @@ window.onload=function() {
     function sliderUpdate(slider, val, unit) {
         val.prop("innerHTML", slider.val()+" "+unit)
         let percent = (slider.val() - slider.attr("min")) / (slider.attr("max") - slider.attr("min")) * 100
-        let newPosition = percent + "%"
-        val.css("margin-left", newPosition)
+        /*let newPosition = percent + "%"
+        val.css("margin-left", newPosition)*/
     }
 
     $('#accedi3').css("opacity", 0.5)
@@ -126,9 +137,9 @@ window.onload=function() {
         $('<small>').text(text).addClass("card-text").appendTo(_body)
         $('<small>').css("color", "grey").text(" ...altro").on("click", function() {
             Swal.fire({
-                title: 'details'
-                /*icon: 'error',
-                confirmButtonText: 'OK'*/
+                title: exercise.nome,
+                html: "<img src='img/mia.jpg' style='width:200px;'> <br><br> <small>"
+                        +exercise.tutorial+"</small>"
             })}
         ).appendTo(_body)
     }

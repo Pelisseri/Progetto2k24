@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="application/javascript" src="index.js"></script>
     <script type="application/javascript" src="axios@1.1.2.min.js"></script> 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -12,15 +13,16 @@
     <body>
         <div class="center-container">
             <h1>Benvenuto!</h1>
-            <h3>Comincia la tua esperienza su Shreddiet®</h3>
+            <h3>Comincia la tua esperienza su gAIns®</h3>
             <form>
                 <div class="form-group">
                   <input type="text" class="form-control" id="nome" placeholder="Nome"> 
                   <!-- <label for="cmbEta">Select an Option:</label> -->
                   <select id="cmbEta">
                     <option disabled selected value="">Età</option>
-                  </select>         
+                  </select>       
                 </div>
+                <p>Non è la tua prima volta? <u id="login">Clicca qui.</u></p>  
                 <button type="button" class="btn btn-primary" id="accedi">Avanti</button>
             </form>
         </div>
@@ -73,6 +75,10 @@
             top: 0;
             left: 400px;
             pointer-events: none; /* Allow clicking through the label */
+        }
+
+        .loginImg {
+            width: 200px;
         }
 
         @keyframes popUp {
