@@ -142,5 +142,6 @@ window.onload=function() {
                         +exercise.tutorial+"</small>"
             })}
         ).appendTo(_body)
+        $('<small>').html("<br>Serie: ").appendTo(_body)
     }
 }

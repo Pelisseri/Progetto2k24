@@ -17,7 +17,8 @@ const app = _express();
 
 // Creazione ed avvio del server
 // app è il router di Express, si occupa di tutta la gestione delle richieste http
-const PORT: number = parseInt(process.env.PORT);
+//const PORT: number = parseInt(process.env.PORT);
+const PORT: number = 3000;
 let paginaErrore;
 const server = _http.createServer(app);
 // Il secondo parametro facoltativo ipAddress consente di mettere il server in ascolto su una delle interfacce della macchina, se non lo metto viene messo in ascolto su tutte le interfacce (3 --> loopback e 2 di rete)
