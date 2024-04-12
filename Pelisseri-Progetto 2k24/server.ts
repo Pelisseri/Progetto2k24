@@ -87,6 +87,9 @@ app.get('/', (req, res) => {
 });
 
 app.get("/api/getScheda/:collection", async (req, res, next) => {
+    /*if (responseProcessed) {
+        return; // Se la risposta è già stata elaborata, esci dalla funzione
+    }*/
     let selectedCollection = req["params"].collection;
     const client = new MongoClient(connectionString);
     await client.connect();
