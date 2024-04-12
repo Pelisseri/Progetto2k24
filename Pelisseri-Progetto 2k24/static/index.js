@@ -138,7 +138,7 @@ window.onload=function() {
         $('<small>').css("color", "grey").text(" ...altro").on("click", function() {
             Swal.fire({
                 title: exercise.nome,
-                html: "<img src='img/mia.jpg' style='width:200px;'> <br><br> <small>"
+                html: "<img src='img/"+exercise.img+"' style='width:200px;'> <br><br> <small>"
                         +exercise.tutorial+"</small>"
             })}
         ).appendTo(_body)
