@@ -1,0 +1,157 @@
+{
+    "giorno_1": [
+      {
+        "nome": "Panca Piana",
+        "set": 4,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Croci ai Cavi",
+        "set": 3,
+        "ripetizioni": "10-15"
+      },
+      {
+        "nome": "French Press con Bilanciere",
+        "set": 3,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Push-up",
+        "set": 3,
+        "ripetizioni": "al fallimento"
+      }
+    ],
+    "giorno_2": [
+      {
+        "nome": "Stacco",
+        "set": 4,
+        "ripetizioni": "6-10"
+      },
+      {
+        "nome": "Lat Machine",
+        "set": 3,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Rematore con Manubri",
+        "set": 3,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Curl Bilanciere",
+        "set": 3,
+        "ripetizioni": "8-12"
+      }
+    ],
+    "giorno_3": [
+      {
+        "nome": "Squat con Bilanciere",
+        "set": 4,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Leg Press",
+        "set": 3,
+        "ripetizioni": "10-15"
+      },
+      {
+        "nome": "Affondi",
+        "set": 3,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Leg Raises",
+        "set": 3,
+        "ripetizioni": "al fallimento"
+      }
+    ],
+    "giorno_4": [
+      {
+        "nome": "Shoulder Press",
+        "set": 4,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Alzate Laterali con Manubri",
+        "set": 3,
+        "ripetizioni": "10-15"
+      },
+      {
+        "nome": "Alzate Frontali",
+        "set": 3,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Military Press",
+        "set": 3,
+        "ripetizioni": "8-12"
+      }
+    ],
+    "giorno_5": [
+      {
+        "nome": "Hip Thrust",
+        "set": 4,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Leg Curl",
+        "set": 3,
+        "ripetizioni": "10-15"
+      },
+      {
+        "nome": "Stacchi Rumeni",
+        "set": 3,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Leg Raises",
+        "set": 3,
+        "ripetizioni": "al fallimento"
+      }
+    ],
+    "giorno_6": [
+      {
+        "nome": "Lat Pulldown",
+        "set": 4,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Pullup",
+        "set": 3,
+        "ripetizioni": "al fallimento"
+      },
+      {
+        "nome": "Rematore con Manubri",
+        "set": 3,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Face-pull",
+        "set": 3,
+        "ripetizioni": "10-15"
+      }
+    ],
+    "giorno_7": [
+      {
+        "nome": "Curl Manubri",
+        "set": 4,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Curl Hammer",
+        "set": 3,
+        "ripetizioni": "10-15"
+      },
+      {
+        "nome": "Curl ai Cavi",
+        "set": 3,
+        "ripetizioni": "8-12"
+      },
+      {
+        "nome": "Tricipiti Pushdown",
+        "set": 3,
+        "ripetizioni": "8-12"
+      }
+    ]
+  }
+  

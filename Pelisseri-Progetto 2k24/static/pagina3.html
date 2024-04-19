@@ -13,18 +13,18 @@
     </head>
     <body>
         <header id="menu">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-secondary" id="navbar">
                 <a class="navbar-brand" href="login.html">gAIns®</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>           
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" onclick="apriAllenamento()">Allenamento <!-- <span class="sr-only">(current)</span>--> </a>
+                    <li class="nav-item">
+                      <a class="nav-link" id="allenamento">Allenamento <!-- <span class="sr-only">(current)</span>--> </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" onclick="apriDieta()">Dieta</a>
+                      <a class="nav-link" id="dieta">Dieta</a>
                     </li>
                   </ul>
                 </div>
@@ -42,6 +42,40 @@
                     <div class="row" id="day1"></div>
                 </div>
             </div> 
+            <div id="divDieta">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Lunedì</td>
+                            <td class="arrow">⌄</td>
+                        </tr>
+                        <tr>
+                            <td>Martedì</td>
+                            <td  class="arrow">⌄</td>
+                        </tr>
+                        <tr>
+                            <td>Mercoledì</td>
+                            <td class="arrow">⌄</td>
+                        </tr>
+                        <tr>
+                            <td>Giovedì</td>
+                            <td  class="arrow">⌄</td>
+                        </tr>
+                        <tr>
+                            <td>Venerdi</td>
+                            <td class="arrow">⌄</td>
+                        </tr>
+                        <tr>
+                            <td>Sabato</td>
+                            <td class="arrow">⌄</td>
+                        </tr>
+                        <tr>
+                            <td>Domenica</td>
+                            <td  class="arrow">⌄</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </main>
     </body>
 
@@ -55,6 +89,10 @@
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
+        }
+
+        #navbar.navbar.navbar-expand-lg.navbar-dark.bg-secondary {
+            background-color: purple; /* Cambia il colore di sfondo */
         }
 
         main {
@@ -83,6 +121,32 @@
             border-color: blueviolet;
             border-width: 1mm;
             box-shadow: none;
+        }
+
+        #divDieta {
+            background-color: white;
+            width: 50%;
+            border-radius: 5px;
+        }
+
+        table  {
+            margin: 30px;
+        }
+
+        tr {
+            height: 40px;
+            border-top: 1px solid gray;
+        }
+
+        td {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 15px;
+            color: gray;
+            padding-left: 40px;
         }
 
         .card {

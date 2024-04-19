@@ -7,6 +7,7 @@ window.onload=function() {
     let _valueAltezza=$('#valueAltezza')
     let _divGPT=$('#divGPT')
     let _divEsercizi=$('#divEsercizi').hide()
+    let _divDieta=$('#divDieta').hide()
     let _menu=$('#menu').hide()
     let sex, height, weight
 
@@ -104,17 +105,24 @@ window.onload=function() {
         $('#accedi3').css("opacity", 1).on("click", function() {
             _divGPT.hide()
             _menu.show()
+            $('#allenamento').click()
+            getScheda()
         })
     })
 
-    function apriAllenamento() {
+    $('#allenamento').on("click", function() {
+        _divDieta.hide()
         _divEsercizi.show()
-        getScheda()
-    }
+        $('#dieta').removeClass("active")
+        $('#allenamento').addClass("active")
+    }) 
 
-    function apriDieta() {
-        _divEsercizi.show()
-    }
+    $('#dieta').on("click", function() {
+        _divDieta.show()
+        _divEsercizi.hide()
+        $('#allenamento').removeClass("active")
+        $('#dieta').addClass("active")
+    }) 
 
     function getScheda() {
         let rq=inviaRichiesta("GET", `/api/getScheda/petto`)

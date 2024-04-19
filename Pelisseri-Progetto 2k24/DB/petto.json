@@ -2,55 +2,55 @@
   {
     "nome": "Chest Press",
     "tutorial": "Sdraiati sulla panca con i piedi a terra e afferra le impugnature sopra di te. Spingi le mani verso l'alto finché le braccia sono completamente estese, quindi controlla lentamente il ritorno.",
-    "focus": "spinta"
+    "focus": "spinta",
 	"img": "petto/chest press.jpg"
   },
   {
     "nome": "Panca piana",
     "tutorial": "Sdraiati sulla panca con la schiena ben appoggiata. Afferra la barra sopra di te con le braccia leggermente più larghe della larghezza delle spalle. Abbassa lentamente la barra verso il petto, quindi spingi verso l'alto fino a quando le braccia sono completamente estese.",
-    "focus": "spinta"
+    "focus": "spinta",
 	"img": "petto/bench press.jpg"
   },
   {
     "nome": "Panca piana con manubri",
     "tutorial": "Sdraiati sulla panca con un manubrio in ciascuna mano. Abbassa lentamente i manubri verso il petto, quindi spingi verso l'alto fino a quando le braccia sono completamente estese.",
-    "focus": "spinta"
+    "focus": "spinta",
 	"img": "petto/db bench press.jpg"
   },
   {
     "nome": "Push-up",
     "tutorial": "Posiziona le mani leggermente più larghe della larghezza delle spalle e le gambe distese dietro di te. Abbassa il corpo fino a quando il petto quasi tocca il pavimento, quindi spingi verso l'alto fino a quando le braccia sono completamente estese.",
-    "focus": "spinta"
+    "focus": "spinta",
 	"img": "petto/push up.jpg"
   },
   {
     "nome": "Panca inclinata",
     "tutorial": "Sdraiati sulla panca inclinata con la testa più alta delle gambe. Afferra la barra sopra di te con le braccia leggermente più larghe della larghezza delle spalle. Solleva la barra verso l'alto fino a quando le braccia sono completamente estese, quindi controlla lentamente il ritorno.",
-    "focus": "petto alto"
+    "focus": "petto alto",
 	"img": "petto/incline press.jpg"
   },
   {
     "nome": "Panca inclinata con manubri",
     "tutorial": "Sdraiati sulla panca inclinata con un manubrio in ciascuna mano. Abbassa lentamente i manubri verso il petto, quindi spingi verso l'alto fino a quando le braccia sono completamente estese.",
-    "focus": "petto alto"
+    "focus": "petto alto",
 	"img": "petto/db incline press.jpg"
   },
   {
     "nome": "Croci ai cavi",
     "tutorial": "Stai in piedi tra due cavi e afferra le maniglie con le braccia leggermente piegate. Porta le maniglie insieme davanti al corpo, contrarre il petto, poi controlla lentamente il ritorno.",
-    "focus": "croci"
+    "focus": "croci",
 	"img": "petto/cable fly.jpg"
   },
   {
     "nome": "Croci con manubri",
     "tutorial": "Sdraiati su una panca con un manubrio in ciascuna mano. Solleva i manubri sopra il petto, quindi abbassali lentamente verso i lati del corpo, mantenendo le braccia leggermente flesse. Contrai il petto mentre porti i manubri insieme davanti al corpo.",
-    "focus": "croci"
+    "focus": "croci",
 	"img": "petto/db fly.jpg"
   },
   {
     "nome": "Flys Machine",
     "tutorial": "Siediti sulla macchina e afferra le maniglie con le braccia leggermente piegate. Porta le maniglie insieme davanti al corpo, contrarre il petto, poi controlla lentamente il ritorno.",
-    "focus": "croci"
+    "focus": "croci",
 	"img": "petto/fly machine.jpg"
   }
 ]
