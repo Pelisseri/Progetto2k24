@@ -1,157 +1,68 @@
 {
-    "giorno_1": [
-      {
-        "nome": "Panca Piana",
-        "set": 4,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Croci ai Cavi",
-        "set": 3,
-        "ripetizioni": "10-15"
-      },
-      {
-        "nome": "French Press con Bilanciere",
-        "set": 3,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Push-up",
-        "set": 3,
-        "ripetizioni": "al fallimento"
-      }
-    ],
-    "giorno_2": [
-      {
-        "nome": "Stacco",
-        "set": 4,
-        "ripetizioni": "6-10"
-      },
-      {
-        "nome": "Lat Machine",
-        "set": 3,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Rematore con Manubri",
-        "set": 3,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Curl Bilanciere",
-        "set": 3,
-        "ripetizioni": "8-12"
-      }
-    ],
-    "giorno_3": [
-      {
-        "nome": "Squat con Bilanciere",
-        "set": 4,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Leg Press",
-        "set": 3,
-        "ripetizioni": "10-15"
-      },
-      {
-        "nome": "Affondi",
-        "set": 3,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Leg Raises",
-        "set": 3,
-        "ripetizioni": "al fallimento"
-      }
-    ],
-    "giorno_4": [
-      {
-        "nome": "Shoulder Press",
-        "set": 4,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Alzate Laterali con Manubri",
-        "set": 3,
-        "ripetizioni": "10-15"
-      },
-      {
-        "nome": "Alzate Frontali",
-        "set": 3,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Military Press",
-        "set": 3,
-        "ripetizioni": "8-12"
-      }
-    ],
-    "giorno_5": [
-      {
-        "nome": "Hip Thrust",
-        "set": 4,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Leg Curl",
-        "set": 3,
-        "ripetizioni": "10-15"
-      },
-      {
-        "nome": "Stacchi Rumeni",
-        "set": 3,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Leg Raises",
-        "set": 3,
-        "ripetizioni": "al fallimento"
-      }
-    ],
-    "giorno_6": [
-      {
-        "nome": "Lat Pulldown",
-        "set": 4,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Pullup",
-        "set": 3,
-        "ripetizioni": "al fallimento"
-      },
-      {
-        "nome": "Rematore con Manubri",
-        "set": 3,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Face-pull",
-        "set": 3,
-        "ripetizioni": "10-15"
-      }
-    ],
-    "giorno_7": [
-      {
-        "nome": "Curl Manubri",
-        "set": 4,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Curl Hammer",
-        "set": 3,
-        "ripetizioni": "10-15"
-      },
-      {
-        "nome": "Curl ai Cavi",
-        "set": 3,
-        "ripetizioni": "8-12"
-      },
-      {
-        "nome": "Tricipiti Pushdown",
-        "set": 3,
-        "ripetizioni": "8-12"
-      }
-    ]
-  }
-  
+  "Giorno 1": [
+    {
+      "nome": "Panca Piana",
+      "set": 4,
+      "ripetizioni": "8-12",
+      "tutorial": "Distenditi sulla panca con i piedi fermi a terra. Afferra la barra con una presa leggermente più ampia della larghezza delle spalle. Abbassa lentamente la barra fino a toccare il petto, quindi spingi verso l'alto estendendo completamente le braccia."
+    },
+    {
+      "nome": "Croci ai Cavi",
+      "set": 3,
+      "ripetizioni": "10-15",
+      "tutorial": "Impugna le maniglie dei cavi alti con le braccia estese lateralmente. Porta le braccia verso il centro incrociandole davanti al corpo, mantenendo i gomiti leggermente flessi. Torna lentamente alla posizione di partenza."
+    },
+    {
+      "nome": "French Press con Bilanciere",
+      "set": 3,
+      "ripetizioni": "8-12",
+      "tutorial": "Distendi su una panca con un bilanciere sopra la testa. Piega lentamente i gomiti per abbassare il bilanciere verso la parte posteriore della testa, mantenendo i gomiti fissi. Estendi le braccia per tornare alla posizione di partenza."
+    },
+    {
+      "nome": "Push-up",
+      "set": 3,
+      "ripetizioni": "al fallimento",
+      "tutorial": "Posiziona le mani leggermente più larghe delle spalle e i piedi uniti o leggermente separati. Abbassa il corpo piegando i gomiti finché il petto non tocca il pavimento. Spingi attraverso le mani per tornare alla posizione di partenza."
+    }
+  ],
+  "Giorno 2": [
+    {
+      "nome": "Stacco",
+      "set": 4,
+      "ripetizioni": "6-10",
+      "tutorial": "In piedi con i piedi alla larghezza delle spalle, afferra una barra con le mani a una larghezza leggermente maggiore. Piega le ginocchia leggermente, sporgi il busto in avanti e abbassa il torace mantenendo la schiena dritta. Torna in posizione eretta spingendo attraverso i talloni."
+    },
+    {
+      "nome": "Lat Machine",
+      "set": 3,
+      "ripetizioni": "8-12",
+      "tutorial": "Siediti sulla macchina, afferra la barra sopra la testa con una presa ampia. Tira verso il basso la barra fino a quando le braccia sono completamente estese. Controlla il movimento mentre porti la barra verso l'alto fino a quando le braccia sono completamente tese."
+    },
+    {
+      "nome": "Rematore con Manubri",
+      "set": 3,
+      "ripetizioni": "8-12",
+      "tutorial": "Piega leggermente le ginocchia e inclina il busto in avanti, mantenendo la schiena dritta. Afferra i manubri con le braccia completamente estese. Tirali verso l'addome, mantenendo i gomiti vicini al corpo. Contrai i muscoli della schiena nella parte superiore del movimento."
+    }
+  ],
+  "Giorno 3": [
+    {
+      "nome": "Squat con Bilanciere",
+      "set": 4,
+      "ripetizioni": "8-12",
+      "tutorial": "Posiziona il bilanciere sulla parte superiore dei trapezi, con i piedi alla larghezza delle spalle. Abbassa il corpo piegando le ginocchia e spingendo il sedere indietro, mantenendo il petto alto. Torna alla posizione eretta spingendo attraverso i talloni."
+    },
+    {
+      "nome": "Leg Press",
+      "set": 3,
+      "ripetizioni": "10-15",
+      "tutorial": "Siediti sulla macchina con i piedi posizionati sulla pedana alla larghezza delle spalle. Spingi la pedana verso l'alto estendendo le gambe completamente, quindi abbassala lentamente fino a quando le ginocchia sono piegate a 90 gradi."
+    },
+    {
+      "nome": "Affondi",
+      "set": 3,
+      "ripetizioni": "8-12",
+      "tutorial": "In piedi, porta un piede in avanti e piega entrambe le ginocchia fino a quando entrambe le gambe sono piegate a 90 gradi. Torna alla posizione eretta spingendo attraverso il tallone del piede anteriore."
+    }
+  ]
+}

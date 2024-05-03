@@ -4,6 +4,10 @@ import _fs from "fs";
 import _express from "express";
 import _dotenv from "dotenv";
 import _cors from "cors";
+import _headers from "./headers.json";
+import _allenamento from "./DB/allenamento.json"
+
+let responseProcessed=false
 
 // Lettura delle password e parametri fondamentali
 _dotenv.config({ "path": ".env" });
@@ -86,18 +90,24 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'static', 'login.html'));
 });
 
-app.get("/api/getScheda/:collection", async (req, res, next) => {
-    /*if (responseProcessed) {
+app.get("/api/getScheda", async (req, res, next) => {
+    /*if (responseProcessed) 
         return; // Se la risposta è già stata elaborata, esci dalla funzione
-    }*/
-    let selectedCollection = req["params"].collection;
+    else
+    {*/
+        res.writeHead(200, _headers.json);
+        res.write(JSON.stringify(_allenamento));
+        res.end();
+        responseProcessed=true
+    //}
+    /*let selectedCollection = req["params"].collection;
     const client = new MongoClient(connectionString);
     await client.connect();
     let collection = client.db(DBNAME).collection(selectedCollection);
     let rq = collection.find().toArray();
     rq.then((data) => res.send(data));
     rq.catch((err) => res.status(500).send(`Errore esecuzione query: ${err}`));
-    rq.finally(() => client.close());
+    rq.finally(() => client.close());*/
 });
 
 //********************************************************************************************//

@@ -125,17 +125,23 @@ window.onload=function() {
     }) 
 
     function getScheda() {
-        let rq=inviaRichiesta("GET", `/api/getScheda/petto`)
+        let rq=inviaRichiesta("GET", `/api/getScheda`)
 		rq.then((response)=>{
             console.log(response.data)
-            for(let exercise of response.data)
-                appendCard(exercise)
+            for(let day in response.data)
+            {
+                let container=$('<div>').appendTo(_divEsercizi)
+                let row = $('<div>').addClass("row").appendTo(container);
+                $('<h2>').css("color", "white").text(day).appendTo(container)
+                for(let i=0; i<response.data[day].length; i++)
+                    appendCard(row, response.data[day][i])
+            } 
         })
     }
 
-    function appendCard(exercise) {
+    function appendCard(row, exercise) {
         // Creazione di una colonna con classe "col-md-4" all'interno dell'elemento con id "day1"
-        let _col = $('<div>').addClass("col-md-4 mb-4").appendTo($('#day1')); // Aggiunta della classe "mb-4" per lo spazio tra le colonne
+        let _col = $('<div>').addClass("col-md-4 mb-4").appendTo(row); // Aggiunta della classe "mb-4" per lo spazio tra le colonne
     
         // Creazione di un elemento div con classe "card" e aggiunta all'interno della colonna
         let _card = $('<div>').addClass("card").appendTo(_col);
@@ -156,9 +162,9 @@ window.onload=function() {
             Swal.fire({
                 title: exercise.nome,
                 html: "<img src='img/"+exercise.img+"' style='width:200px;'> <br><br> <small>"
-                        +exercise.tutorial+"</small>"
+                        +exercise.tutorial+"<br><br>Serie: <b>"+exercise.set+"x"+exercise.ripetizioni+"<b></small>"
             })}
         ).appendTo(_body)
-        $('<small>').html("<br>Serie: ").appendTo(_body)
+        $('<small>').html("<br>Serie: <b>"+exercise.set+"x"+exercise.ripetizioni+"<b>").appendTo(_body)
     }
 }
