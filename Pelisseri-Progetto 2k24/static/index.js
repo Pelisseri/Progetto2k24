@@ -140,6 +140,19 @@ window.onload=function() {
     }
 
     function appendCard(row, exercise) {
+        //Creazione tabella log
+        let logTable=$('<table>')
+        let tbody=$('<tbody>').appendTo(logTable)
+        for(let i=0; i<exercise.log.length; i++)
+        {
+            let tr=$('<tr>').appendTo(tbody)
+            $('<td>').text(`set n. ${i+1}`).appendTo(tr)
+            let td=$('<td>').appendTo(tr)
+            $('<input type="number">').css("margin-left", "30px").css("width", "100px").prop("placeholder", "n. rep").appendTo(td)
+            $('<a>').text(" x ").appendTo(td)
+            $('<input type="number">').css("width", "100px").prop("placeholder", "kg").appendTo(td)
+        }
+
         // Creazione di una colonna con classe "col-md-4" all'interno dell'elemento con id "day1"
         let _col = $('<div>').addClass("col-md-4 mb-4").appendTo(row); // Aggiunta della classe "mb-4" per lo spazio tra le colonne
     
@@ -150,7 +163,7 @@ window.onload=function() {
         $('<img>').prop("src", "img/mia.jpg").addClass("card-img-top").appendTo(_card);
     
         // Creazione di un elemento div con classe "card-body" e aggiunta all'interno della card
-        let _body = $('<div>').addClass("card-body").appendTo(_card);
+        let _body = $('<div>').addClass("card-body overflow-auto").appendTo(_card);
     
         // Creazione di un titolo h5 con testo "Titolo" e classe "card-title", e aggiunta all'interno del corpo della card
         $('<h5>').text(exercise.nome).addClass("card-title").appendTo(_body);
@@ -161,8 +174,11 @@ window.onload=function() {
         $('<small>').css("color", "grey").text(" ...altro").on("click", function() {
             Swal.fire({
                 title: exercise.nome,
-                html: "<img src='img/"+exercise.img+"' style='width:200px;'> <br><br> <small>"
-                        +exercise.tutorial+"<br><br>Serie: <b>"+exercise.set+"x"+exercise.ripetizioni+"<b></small>"
+                html: `<img src='img/${exercise.img}' style='width:200px;'> <br><br> <small>
+                        ${exercise.tutorial}<br><br>Serie: <b>${exercise.set}x${exercise.ripetizioni}<b></small>
+                        <br><br> <h2 class="text-left">Log</h2> 
+                        <small class="text-left" id='logDescription'>Registra i tuoi progressi e supera te stesso di volta
+                        in volta.</small><br>`+logTable.prop("outerHTML")
             })}
         ).appendTo(_body)
         $('<small>').html("<br>Serie: <b>"+exercise.set+"x"+exercise.ripetizioni+"<b>").appendTo(_body)
