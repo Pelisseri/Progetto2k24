@@ -16,6 +16,7 @@ _dotenv.config({ "path": ".env" });
 import { MongoClient, ObjectId } from "mongodb";
 import path from "path";
 const DBNAME = process.env.DBNAME;
+const DBNAME2 = process.env.DBNAME2;
 const connectionString: string = process.env.connectionStringAtlas;
 const app = _express();
 

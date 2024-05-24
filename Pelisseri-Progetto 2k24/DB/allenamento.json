@@ -4,6 +4,7 @@
       "nome": "Panca Piana",
       "set": 4,
       "ripetizioni": "8-12",
+      "img": "petto/bench press.jpg",
       "tutorial": "Distenditi sulla panca con i piedi fermi a terra. Afferra la barra con una presa leggermente più ampia della larghezza delle spalle. Abbassa lentamente la barra fino a toccare il petto, quindi spingi verso l'alto estendendo completamente le braccia.",
       "log": [
         {"reps": null, "kg": null},
@@ -16,6 +17,7 @@
       "nome": "Croci ai Cavi",
       "set": 3,
       "ripetizioni": "10-15",
+      "img": "petto/cable fly.jpg",
       "tutorial": "Impugna le maniglie dei cavi alti con le braccia estese lateralmente. Porta le braccia verso il centro incrociandole davanti al corpo, mantenendo i gomiti leggermente flessi. Torna lentamente alla posizione di partenza.",
       "log": [
         {"reps": null, "kg": null},
@@ -27,6 +29,7 @@
       "nome": "French Press con Bilanciere",
       "set": 3,
       "ripetizioni": "8-12",
+      "img": "braccia/french press bilanciere.jpg",
       "tutorial": "Distendi su una panca con un bilanciere sopra la testa. Piega lentamente i gomiti per abbassare il bilanciere verso la parte posteriore della testa, mantenendo i gomiti fissi. Estendi le braccia per tornare alla posizione di partenza.",
       "log": [
         {"reps": null, "kg": null},
@@ -37,7 +40,8 @@
     {
       "nome": "Push-up",
       "set": 3,
-      "ripetizioni": "al fallimento",
+      "ripetizioni": "MAX",
+      "img": "petto/push up.jpg",
       "tutorial": "Posiziona le mani leggermente più larghe delle spalle e i piedi uniti o leggermente separati. Abbassa il corpo piegando i gomiti finché il petto non tocca il pavimento. Spingi attraverso le mani per tornare alla posizione di partenza.",
       "log": [
         {"reps": null, "kg": null},
@@ -87,6 +91,7 @@
       "nome": "Squat con Bilanciere",
       "set": 4,
       "ripetizioni": "8-12",
+      "img": "gambe/squat bilanciere.jpg",
       "tutorial": "Posiziona il bilanciere sulla parte superiore dei trapezi, con i piedi alla larghezza delle spalle. Abbassa il corpo piegando le ginocchia e spingendo il sedere indietro, mantenendo il petto alto. Torna alla posizione eretta spingendo attraverso i talloni.",
       "log": [
         {"reps": null, "kg": null},
@@ -99,6 +104,7 @@
       "nome": "Leg Press",
       "set": 3,
       "ripetizioni": "10-15",
+      "img": "gambe/leg press.jpg",
       "tutorial": "Siediti sulla macchina con i piedi posizionati sulla pedana alla larghezza delle spalle. Spingi la pedana verso l'alto estendendo le gambe completamente, quindi abbassala lentamente fino a quando le ginocchia sono piegate a 90 gradi.",
       "log": [
         {"reps": null, "kg": null},
@@ -110,6 +116,7 @@
       "nome": "Affondi",
       "set": 3,
       "ripetizioni": "8-12",
+      "img": "gambe/affondi.jpg",
       "tutorial": "In piedi, porta un piede in avanti e piega entrambe le ginocchia fino a quando entrambe le gambe sono piegate a 90 gradi. Torna alla posizione eretta spingendo attraverso il tallone del piede anteriore.",
       "log": [
         {"reps": null, "kg": null},

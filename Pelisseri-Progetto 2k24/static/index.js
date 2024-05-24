@@ -148,9 +148,9 @@ window.onload=function() {
             let tr=$('<tr>').appendTo(tbody)
             $('<td>').text(`set n. ${i+1}`).appendTo(tr)
             let td=$('<td>').appendTo(tr)
-            $('<input type="number">').css("margin-left", "30px").css("width", "100px").prop("placeholder", "n. rep").appendTo(td)
+            $('<input type="number">').addClass("logReps").prop("placeholder", "n. rep").appendTo(td)
             $('<a>').text(" x ").appendTo(td)
-            $('<input type="number">').css("width", "100px").prop("placeholder", "kg").appendTo(td)
+            $('<input type="number">').addClass("logWeight").prop("placeholder", "kg").appendTo(td)
         }
 
         // Creazione di una colonna con classe "col-md-4" all'interno dell'elemento con id "day1"
@@ -160,7 +160,7 @@ window.onload=function() {
         let _card = $('<div>').addClass("card").appendTo(_col);
     
         // Creazione di un'immagine con classe "card-img-top" e definizione del percorso della sorgente (src)
-        $('<img>').prop("src", "img/mia.jpg").addClass("card-img-top").appendTo(_card);
+        $('<img>').prop("src", `img/${exercise.img}`).addClass("card-img-top").appendTo(_card);
     
         // Creazione di un elemento div con classe "card-body" e aggiunta all'interno della card
         let _body = $('<div>').addClass("card-body overflow-auto").appendTo(_card);
@@ -179,8 +179,17 @@ window.onload=function() {
                         <br><br> <h2 class="text-left">Log</h2> 
                         <small class="text-left" id='logDescription'>Registra i tuoi progressi e supera te stesso di volta
                         in volta.</small><br>`+logTable.prop("outerHTML")
+            }).then((result) => {
+                if(result.isConfirmed)
+                {
+                    let reps=$('.logReps')
+                    let kg=$('.logWeight')
+                    aggiornaLog(reps, kg)
+                }
             })}
         ).appendTo(_body)
         $('<small>').html("<br>Serie: <b>"+exercise.set+"x"+exercise.ripetizioni+"<b>").appendTo(_body)
     }
+
+    function aggiornaLog(reps, kg) {}
 }
