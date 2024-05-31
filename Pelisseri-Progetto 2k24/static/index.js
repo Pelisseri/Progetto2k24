@@ -21,7 +21,7 @@ window.onload=function() {
                 <input id="password" type="password" class="swal2-input" placeholder="Password">
                 `,
             confirmButtonText: 'OK'
-        });
+        }).then((result) => controllaLogin($('#username'), $('#password')))
     })
 
     sliderUpdate($('#sliderPeso'), _valuePeso, "kg")
@@ -32,6 +32,47 @@ window.onload=function() {
     let getNome=localStorage.getItem("localName")
    _h2.prop("innerHTML", _h2.prop("innerHTML")+getNome)
    //console.log($('#sliderPeso').css("left"))
+
+    function controllaLogin(_username, _password) {
+        _username.removeClass("icona-rossa")
+        _username.prop("placeholder", "Nome")  				
+        _password.removeClass("icona-rossa")
+        _password.prop("placeholder", "Password")	
+        
+        if(_username.val() == "") 
+        {
+            _username.addClass("icona-rossa");  
+            _username.prop("placeholder", "Mancante!") 
+        } 
+        else if(_password.val() == "") 
+        {
+            _password.addClass("icona-rossa");  
+            _password.prop("placeholder", "Mancante!")
+        }
+        else
+        {
+            let request = inviaRichiesta('POST', '/api/loginWeb',  
+                { "username": _username.val(),
+                "password": _password.val() 
+                }
+            );
+            request.catch(function(err) {
+                // unauthorized
+                if (err.status == 401) {  
+                    _lblErrore.show();
+                } 
+                else
+                {
+                    errore(err) 
+                    _lblErrore.show();
+                }
+
+            });
+            request.then(function(response) {								
+                window.location.href = "pagina2.html"
+            })		
+        }
+    }
 
     _cmbEta.on("click", function() {
         _cmbEta.css("color", "")
