@@ -4,19 +4,29 @@ import _fs from "fs";
 import _express from "express";
 import _dotenv from "dotenv";
 import _cors from "cors";
-import _headers from "./headers.json";
-import _allenamento from "./DB/allenamento.json"
+import Configuration from "openai"
+import OpenAIApi from "openai"
+
+import _braccia from "./DB/braccia.json"
+import _gambe from "./DB/gambe.json"
+import _petto from "./DB/petto.json"
+import _schiena from "./DB/schiena.json"
+import _spalle from "./DB/spalle.json"
 
 let responseProcessed=false
 
 // Lettura delle password e parametri fondamentali
 _dotenv.config({ "path": ".env" });
 
+//Configurazione ChatGPT API
+const OPENAI_ORG = process.env.gpt_key
+const OPENAI_API_KEY = process.env.gAIns_key
+const openai=new OpenAIApi({apiKey: OPENAI_API_KEY})
+
 // Variabili relative a MongoDB ed Express
 import { MongoClient, ObjectId } from "mongodb";
 import path from "path";
 const DBNAME = process.env.DBNAME;
-const DBNAME2 = process.env.DBNAME2;
 const connectionString: string = process.env.connectionStringAtlas;
 const app = _express();
 
@@ -95,13 +105,13 @@ app.get("/api/getScheda", async (req, res, next) => {
     /*if (responseProcessed) 
         return; // Se la risposta è già stata elaborata, esci dalla funzione
     else
-    {*/
+    {
         res.writeHead(200, _headers.json);
         res.write(JSON.stringify(_allenamento));
         res.end();
         responseProcessed=true
     //}
-    /*let selectedCollection = req["params"].collection;
+    let selectedCollection = req["params"].collection;
     const client = new MongoClient(connectionString);
     await client.connect();
     let collection = client.db(DBNAME).collection(selectedCollection);
@@ -109,6 +119,12 @@ app.get("/api/getScheda", async (req, res, next) => {
     rq.then((data) => res.send(data));
     rq.catch((err) => res.status(500).send(`Errore esecuzione query: ${err}`));
     rq.finally(() => client.close());*/
+    const completion = await openai.chat.completions.create({
+        messages: [{"role": "system", "content": `${JSON.stringify(_braccia)} ${JSON.stringify(_gambe)} 
+                ${JSON.stringify(_petto)} ${JSON.stringify(_schiena)} ${JSON.stringify(_spalle)}`}],
+        model: "gpt-3.5-turbo",
+      });   
+    console.log(completion.choices[0]);
 });
 
 //********************************************************************************************//
