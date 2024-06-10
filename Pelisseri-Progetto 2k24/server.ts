@@ -7,12 +7,6 @@ import _cors from "cors";
 import Configuration from "openai"
 import OpenAIApi from "openai"
 
-import _braccia from "./DB/braccia.json"
-import _gambe from "./DB/gambe.json"
-import _petto from "./DB/petto.json"
-import _schiena from "./DB/schiena.json"
-import _spalle from "./DB/spalle.json"
-
 let responseProcessed=false
 
 // Lettura delle password e parametri fondamentali
@@ -101,6 +95,29 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'static', 'login.html'));
 });
 
+app.post("/api/newUser", async (req, res, next) => {
+    let username=req["body"]["nome"]
+    let newUser={
+        nome: username,
+        password: "password",
+        scheda: [],
+        dieta: []
+    }
+    const client = new MongoClient(connectionString);
+    await client.connect();
+    let db = client.db(DBNAME);
+    let collection = client.db(DBNAME).collection("utenti");
+    let rq = collection.insertOne(newUser)
+    rq.then((data) => res.send(data));
+    rq.catch((err) => res.status(500).send(`Errore: ${err}`));
+    rq.finally(() => client.close());
+})
+
+app.post("/api/logIn", async (req, res, next) => {
+    let username = req["body"]["user"]
+    let password = req["body"]["pwd"]
+})
+
 app.get("/api/getScheda", async (req, res, next) => {
     /*if (responseProcessed) 
         return; // Se la risposta è già stata elaborata, esci dalla funzione
@@ -118,13 +135,13 @@ app.get("/api/getScheda", async (req, res, next) => {
     let rq = collection.find().toArray();
     rq.then((data) => res.send(data));
     rq.catch((err) => res.status(500).send(`Errore esecuzione query: ${err}`));
-    rq.finally(() => client.close());*/
+    rq.finally(() => client.close());
     const completion = await openai.chat.completions.create({
         messages: [{"role": "system", "content": `${JSON.stringify(_braccia)} ${JSON.stringify(_gambe)} 
                 ${JSON.stringify(_petto)} ${JSON.stringify(_schiena)} ${JSON.stringify(_spalle)}`}],
         model: "gpt-3.5-turbo",
       });   
-    console.log(completion.choices[0]);
+    console.log(completion.choices[0]);*/
 });
 
 //********************************************************************************************//

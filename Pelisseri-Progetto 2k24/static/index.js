@@ -20,10 +20,16 @@ window.onload=function() {
                 <input id="username" class="swal2-input" placeholder="Username">
                 <input id="password" type="password" class="swal2-input" placeholder="Password">
                 `,
-            confirmButtonText: 'OK'
-        }).then((result) => controllaLogin($('#username'), $('#password')))
+            confirmButtonText: 'OK',
+            preConfirm: () => {
+                let user=$('#username').val()
+                let pwd=$('#password').val()
+                if(!user || !pwd)
+                    Swal.showValidationMessage("Inserisci username e password.")
+                else logIn(user, pwd)
+            }
+        })
     })
-
     sliderUpdate($('#sliderPeso'), _valuePeso, "kg")
     sliderUpdate($('#sliderAltezza'), _valueAltezza, "cm")
 
@@ -33,45 +39,12 @@ window.onload=function() {
    _h2.prop("innerHTML", _h2.prop("innerHTML")+getNome)
    //console.log($('#sliderPeso').css("left"))
 
-    function controllaLogin(_username, _password) {
-        _username.removeClass("icona-rossa")
-        _username.prop("placeholder", "Nome")  				
-        _password.removeClass("icona-rossa")
-        _password.prop("placeholder", "Password")	
-        
-        if(_username.val() == "") 
-        {
-            _username.addClass("icona-rossa");  
-            _username.prop("placeholder", "Mancante!") 
-        } 
-        else if(_password.val() == "") 
-        {
-            _password.addClass("icona-rossa");  
-            _password.prop("placeholder", "Mancante!")
-        }
-        else
-        {
-            let request = inviaRichiesta('POST', '/api/loginWeb',  
-                { "username": _username.val(),
-                "password": _password.val() 
-                }
-            );
-            request.catch(function(err) {
-                // unauthorized
-                if (err.status == 401) {  
-                    _lblErrore.show();
-                } 
-                else
-                {
-                    errore(err) 
-                    _lblErrore.show();
-                }
-
-            });
-            request.then(function(response) {								
-                window.location.href = "pagina2.html"
-            })		
-        }
+    function logIn(user, pwd) {
+        console.log(user, pwd)
+        let rq=inviaRichiesta("POST", "/api/logIn", {user, pwd})
+        rq.then((response)=>{
+            console.log(response.data)
+        })
     }
 
     _cmbEta.on("click", function() {
@@ -84,9 +57,13 @@ window.onload=function() {
         console.log(nome, eta)
         if(nome!="" && eta!="Età")
         {
-            window.location.href="pagina2.html"
+            //window.location.href="pagina2.html"
             localStorage.setItem("localName", nome)
             localStorage.setItem("localAge", eta)
+            let rq=inviaRichiesta("POST", "/api/newUser")
+            rq.then((response) => {
+                console.log(response.data)
+            })
         }
         else if(nome=="")
         {

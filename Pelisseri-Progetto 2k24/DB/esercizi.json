@@ -1,0 +1,242 @@
+[
+    {
+        "nome": "Curl bilanciere",
+        "focus": "bicipiti",
+        "tutorial": "Tieni il bilanciere con le mani alla larghezza delle spalle. Con i gomiti vicino al corpo, solleva lentamente il bilanciere verso le spalle, mantenendo i gomiti fissi. Abbassa il bilanciere lentamente e controllatamente fino alla posizione di partenza.",
+        "img": "braccia/curl bilanciere.jpg"
+    },
+    {
+        "nome": "Curl manubri",
+        "focus": "bicipiti",
+        "tutorial": "Impugna un manubrio in ciascuna mano, con i gomiti vicino al corpo. Solleva lentamente i manubri verso le spalle, mantenendo i gomiti fissi. Abbassa i manubri lentamente e controllatamente fino alla posizione di partenza.",
+        "img": "braccia/curl manubri.jpg"
+    },
+    {
+        "nome": "Curl su panca inclinata",
+        "focus": "bicipiti",
+        "tutorial": "Sdraiati su una panca inclinata con un manubrio in ciascuna mano. Solleva lentamente i manubri verso le spalle, mantenendo i gomiti fissi. Abbassa i manubri lentamente e controllatamente fino alla posizione di partenza.",
+        "img": "braccia/curl panca inclinata.jpg"
+    },
+    {
+        "nome": "Spider curl",
+        "focus": "bicipiti",
+        "tutorial": "Sdraiati su una panca inclinata, lascia pendere le braccia in avanti. Con un manubrio in ciascuna mano, solleva lentamente i manubri verso le spalle, mantenendo i gomiti fissi. Abbassa i manubri lentamente e controllatamente fino alla posizione di partenza.",
+        "img": "braccia/spider curl.jpg"
+    },
+    {
+        "nome": "Hammer curl",
+        "focus": "bicipiti",
+        "tutorial": "Impugna un manubrio in ciascuna mano, con i palmi rivolti verso l'interno. Solleva lentamente i manubri verso le spalle, mantenendo i gomiti fissi. Abbassa i manubri lentamente e controllatamente fino alla posizione di partenza.",
+        "img": "braccia/hammer curl.jpg"
+    },
+    {
+        "nome": "Curl ai cavi",
+        "focus": "bicipiti",
+        "tutorial": "Impugna le impugnature del cavo con le braccia distese. Con i gomiti vicino al corpo, solleva lentamente le mani verso le spalle, mantenendo i gomiti fissi. Abbassa lentamente e controllatamente le mani fino alla posizione di partenza.",
+        "img": "braccia/curl cavi.jpg"
+    },
+    {
+        "nome": "French press bilanciere",
+        "focus": "tricipiti",
+        "tutorial": "Sdraiati su una panca con un bilanciere sopra il petto. Con i gomiti rivolti verso il soffitto, solleva lentamente il bilanciere verso l'alto, estendendo completamente le braccia. Abbassa il bilanciere lentamente e controllatamente fino alla posizione di partenza.",
+        "img": "braccia/french press bilanciere.jpg"
+    },
+    {
+        "nome": "French press manubri",
+        "focus": "tricipiti",
+        "tutorial": "Sdraiati su una panca con un manubrio sopra il petto. Con i gomiti rivolti verso il soffitto, solleva lentamente i manubri verso l'alto, estendendo completamente le braccia. Abbassa i manubri lentamente e controllatamente fino alla posizione di partenza.",
+        "img": "braccia/french press manubri.jpg"
+    },
+    {
+        "nome": "Dips",
+        "focus": "tricipiti",
+        "tutorial": "Aggrappati a due barre parallele con le braccia estese. Abbassa lentamente il corpo piegando i gomiti fino a un angolo di circa 90 gradi. Spingi il corpo verso l'alto fino a estendere completamente le braccia. Ripeti il movimento.",
+        "img": "braccia/dips.jpg"
+    },
+    {
+        "nome": "Triceps pushdown",
+        "focus": "tricipiti",
+        "tutorial": "Impugna l'impugnatura del cavo con le braccia distese. Spingi l'impugnatura verso il basso estendendo completamente le braccia. Controlla il movimento durante la risalita dell'impugnatura.",
+        "img": "braccia/triceps pushdown.jpg"
+    },
+    {
+        "nome": "Diamond pushups",
+        "focus": "tricipiti",
+        "tutorial": "Assumi la posizione delle flessioni con le mani vicine formando un diamante con le dita. Abbassa il corpo verso il pavimento piegando i gomiti. Spingi il corpo verso l'alto fino a estendere completamente le braccia. Ripeti il movimento.",
+        "img": "braccia/diamond pushup.jpg"
+    },
+	{
+        "nome": "Squat con bilanciere",
+        "tutorial": "Posiziona il bilanciere sulla parte superiore della schiena, sopra i muscoli del trapezio. Allarga leggermente le gambe oltre la larghezza delle spalle e piega le ginocchia per abbassarti lentamente verso il basso come se ti sedessi su una sedia immaginaria. Mantieni la schiena dritta e guarda davanti a te durante l'esecuzione. Spingi con i talloni per tornare in piedi.",
+        "focus": "quadricipiti"
+    },
+    {
+        "nome": "Leg press",
+        "tutorial": "Siediti sulla macchina leg press con la schiena ben appoggiata e le gambe piegate a un angolo di circa 90 gradi. Spingi lentamente il peso verso l'alto estendendo completamente le gambe, quindi abbassalo lentamente fino a quando le ginocchia sono piegate a 90 gradi.",
+        "focus": "quadricipiti"
+    },
+    {
+        "nome": "Affondi",
+        "tutorial": "In piedi, fai un passo avanti con una gamba e piega entrambe le ginocchia per abbassare il tuo corpo verso il basso, mantenendo la schiena dritta. L'altro ginocchio dovrebbe quasi toccare il pavimento. Poi spingi attraverso il tallone della gamba anteriore per tornare in piedi.",
+        "focus": "quadricipiti"
+    },
+    {
+        "nome": "Squat bulgari",
+        "tutorial": "Posiziona un piede su una panca dietro di te e l'altro piede a terra con una leggera distanza. Piegati lentamente sul ginocchio della gamba anteriore finché la coscia è parallela al pavimento. Poi torna lentamente in piedi.",
+        "focus": "quadricipiti"
+    },
+    {
+        "nome": "Leg raises",
+        "tutorial": "Sdraiati su un tappetino con le braccia lungo i fianchi e le mani sotto i glutei. Solleva lentamente le gambe tese verso l'alto mantenendo i muscoli addominali contratti. Abbassale lentamente senza toccare il pavimento e ripeti.",
+        "focus": "quadricipiti"
+    },
+    {
+        "nome": "Hip thrust",
+        "tutorial": "Seduto sul pavimento con la schiena contro una panca e un bilanciere appoggiato sui fianchi, piega le ginocchia e appoggia i piedi a terra. Solleva lentamente i fianchi verso l'alto spingendo attraverso i talloni e contrai i glutei. Poi abbassali lentamente.",
+        "focus": "femorali"
+    },
+    {
+        "nome": "Leg curl",
+        "tutorial": "Sdraiati sullo stomaco sulla macchina leg curl con le caviglie sotto il cuscinetto. Piegare lentamente le gambe contro la resistenza fino a quando non sono piegate a 90 gradi, quindi tornare lentamente alla posizione iniziale.",
+        "focus": "femorali"
+    },
+    {
+        "nome": "Stacchi rumeni",
+        "tutorial": "In piedi con i piedi alla larghezza delle spalle, afferra un bilanciere o un paio di manubri. Piegati in avanti alla vita mantenendo le ginocchia leggermente flesse e la schiena dritta. Abbassa il peso verso il pavimento fino a sentire un leggero stiramento nei muscoli posteriori della coscia, poi torna in piedi contraggendo i glutei.",
+        "focus": "femorali"
+    },
+	{
+    "nome": "Chest Press",
+    "tutorial": "Sdraiati sulla panca con i piedi a terra e afferra le impugnature sopra di te. Spingi le mani verso l'alto finché le braccia sono completamente estese, quindi controlla lentamente il ritorno.",
+    "focus": "spinta",
+	"img": "petto/chest press.jpg"
+  },
+  {
+    "nome": "Panca piana",
+    "tutorial": "Sdraiati sulla panca con la schiena ben appoggiata. Afferra la barra sopra di te con le braccia leggermente più larghe della larghezza delle spalle. Abbassa lentamente la barra verso il petto, quindi spingi verso l'alto fino a quando le braccia sono completamente estese.",
+    "focus": "spinta",
+	"img": "petto/bench press.jpg"
+  },
+  {
+    "nome": "Panca piana con manubri",
+    "tutorial": "Sdraiati sulla panca con un manubrio in ciascuna mano. Abbassa lentamente i manubri verso il petto, quindi spingi verso l'alto fino a quando le braccia sono completamente estese.",
+    "focus": "spinta",
+	"img": "petto/db bench press.jpg"
+  },
+  {
+    "nome": "Push-up",
+    "tutorial": "Posiziona le mani leggermente più larghe della larghezza delle spalle e le gambe distese dietro di te. Abbassa il corpo fino a quando il petto quasi tocca il pavimento, quindi spingi verso l'alto fino a quando le braccia sono completamente estese.",
+    "focus": "spinta",
+	"img": "petto/push up.jpg"
+  },
+  {
+    "nome": "Panca inclinata",
+    "tutorial": "Sdraiati sulla panca inclinata con la testa più alta delle gambe. Afferra la barra sopra di te con le braccia leggermente più larghe della larghezza delle spalle. Solleva la barra verso l'alto fino a quando le braccia sono completamente estese, quindi controlla lentamente il ritorno.",
+    "focus": "petto alto",
+	"img": "petto/incline press.jpg"
+  },
+  {
+    "nome": "Panca inclinata con manubri",
+    "tutorial": "Sdraiati sulla panca inclinata con un manubrio in ciascuna mano. Abbassa lentamente i manubri verso il petto, quindi spingi verso l'alto fino a quando le braccia sono completamente estese.",
+    "focus": "petto alto",
+	"img": "petto/db incline press.jpg"
+  },
+  {
+    "nome": "Croci ai cavi",
+    "tutorial": "Stai in piedi tra due cavi e afferra le maniglie con le braccia leggermente piegate. Porta le maniglie insieme davanti al corpo, contrarre il petto, poi controlla lentamente il ritorno.",
+    "focus": "croci",
+	"img": "petto/cable fly.jpg"
+  },
+  {
+    "nome": "Croci con manubri",
+    "tutorial": "Sdraiati su una panca con un manubrio in ciascuna mano. Solleva i manubri sopra il petto, quindi abbassali lentamente verso i lati del corpo, mantenendo le braccia leggermente flesse. Contrai il petto mentre porti i manubri insieme davanti al corpo.",
+    "focus": "croci",
+	"img": "petto/db fly.jpg"
+  },
+  {
+    "nome": "Flys Machine",
+    "tutorial": "Siediti sulla macchina e afferra le maniglie con le braccia leggermente piegate. Porta le maniglie insieme davanti al corpo, contrarre il petto, poi controlla lentamente il ritorno.",
+    "focus": "croci",
+	"img": "petto/fly machine.jpg"
+  },
+  {
+        "nome": "Stacco",
+        "focus": "schiena bassa",
+        "tutorial": "Posiziona i piedi alla larghezza delle spalle, piega leggermente le ginocchia e afferra il bilanciere con una presa a larghezza delle spalle. Mantieni la schiena dritta e solleva il bilanciere dalla posizione a terra fino a stare in piedi, estendendo le anche e contraiendo i glutei. Abbassa il bilanciere controllatamente fino al suolo."
+    },
+    {
+        "nome": "Lat machine",
+        "focus": "dorsali",
+        "tutorial": "Siediti alla macchina con il petto contro il cuscino e afferra l'impugnatura sopra la testa. Tirare l'impugnatura verso il petto piegando i gomiti. Contrai i muscoli delle scapole durante il movimento. Controlla il ritorno alla posizione di partenza."
+    },
+    {
+        "nome": "Lat pulldown",
+        "focus": "dorsali",
+        "tutorial": "Siediti alla macchina con il petto contro il cuscino e afferra la barra sopra la testa con le mani leggermente più larghe delle spalle. Tirare la barra verso il petto piegando i gomiti. Contrai i muscoli delle scapole durante il movimento. Controlla il ritorno alla posizione di partenza."
+    },
+    {
+        "nome": "Pullup",
+        "focus": "dorsali",
+        "tutorial": "Aggrappati a una barra fissa con le mani leggermente più larghe delle spalle. Solleva il corpo verso la barra, piegando i gomiti e contraiendo i muscoli delle scapole. Abbassa il corpo controllatamente fino al pieno allungamento delle braccia."
+    },
+    {
+        "nome": "Rematore con manubri",
+        "focus": "dorsali",
+        "tutorial": "Inclinati in avanti con il busto parallelo al pavimento e afferra un manubrio in ciascuna mano. Tirare i manubri verso il corpo, mantenendo il busto in posizione e contraiendo i muscoli delle scapole. Controlla il ritorno alla posizione di partenza."
+    },
+    {
+        "nome": "Rowing machine",
+        "focus": "centro schiena",
+        "tutorial": "Siediti alla macchina con il petto contro il cuscino e afferra le maniglie con le braccia estese. Tirare le maniglie verso il corpo, piegando i gomiti e contraiendo i muscoli delle scapole. Controlla il ritorno alla posizione di partenza."
+    },
+    {
+        "nome": "Face-pull",
+        "focus": "centro schiena",
+        "tutorial": "Impugna le impugnature del cavo con le braccia distese e leggermente alzate. Tirare le maniglie verso il viso, mantenendo i gomiti alzati e aprendoli verso l'esterno. Contrai i muscoli delle scapole durante il movimento. Controlla il ritorno alla posizione di partenza."
+    },
+    {
+        "nome": "Alzate posteriori",
+        "focus": "centro schiena",
+        "tutorial": "Stai in piedi con un manubrio in ciascuna mano, con i palmi rivolti verso il corpo. Solleva lentamente i manubri verso il retro, mantenendo le braccia leggermente flesse. Contrai i muscoli delle scapole durante il movimento. Controlla il ritorno alla posizione di partenza."
+    },
+    {
+        "nome": "Shrugs con manubri",
+        "focus": "centro schiena",
+        "tutorial": "Stai in piedi con un manubrio in ciascuna mano, con i palmi rivolti verso il corpo. Solleva lentamente le spalle verso l'alto, mantenendo le braccia leggermente flesse. Contrai i muscoli del collo e delle spalle durante il movimento. Controlla il ritorno alla posizione di partenza."
+    },
+	{
+        "nome": "Shoulder press",
+        "focus": "frontali",
+        "tutorial": "Siediti su una panca con uno schienale regolabile e impugna un bilanciere con le mani leggermente più larghe delle spalle. Solleva il bilanciere sopra la testa estendendo completamente le braccia. Abbassa il bilanciere lentamente fino alle spalle e ripeti il movimento."
+    },
+    {
+        "nome": "Shoulder press manubri",
+        "focus": "frontali",
+        "tutorial": "Siediti su una panca con uno schienale regolabile e impugna un manubrio in ciascuna mano alla larghezza delle spalle. Solleva i manubri sopra la testa estendendo completamente le braccia. Abbassa i manubri lentamente fino alle spalle e ripeti il movimento."
+    },
+    {
+        "nome": "Alzate frontali",
+        "focus": "frontali",
+        "tutorial": "Stai in piedi con un manubrio in ciascuna mano, con i palmi rivolti verso il corpo. Solleva lentamente i manubri davanti al corpo, mantenendo le braccia leggermente flesse. Porta i manubri a livello delle spalle e abbassali lentamente controllando il movimento."
+    },
+	{
+        "nome": "Military press",
+        "focus": "frontali",
+        "tutorial": "Impugna il bilanciere con le mani a larghezza spalle, mentre sei in piedi, con i palmi rivolti verso l'alto e le mani appoggiate sulla parte alta del petto. Estendi le braccia verso l'alto e porta il bilanciere sopra alla tua testa."
+    },
+    {
+        "nome": "Alzate laterali alla macchina",
+        "focus": "laterali",
+        "tutorial": "Siediti alla macchina apposita con il petto contro lo schienale. Impugna le maniglie con i gomiti leggermente flessi. Solleva lentamente le maniglie verso i lati, mantenendo i gomiti leggermente piegati. Abbassa le maniglie lentamente controllando il movimento."
+    },
+    {
+        "nome": "Alzate laterali con manubri",
+        "focus": "laterali",
+        "tutorial": "Stai in piedi con un manubrio in ciascuna mano, con i palmi rivolti verso il corpo. Solleva lentamente i manubri ai lati del corpo, mantenendo le braccia leggermente flesse. Porta i manubri a livello delle spalle e abbassali lentamente controllando il movimento."
+    },
+    {
+        "nome": "Alzate laterali ai cavi",
+        "focus": "laterali",
+        "tutorial": "Impugna le impugnature del cavo con le braccia distese. Solleva lentamente le maniglie ai lati del corpo, mantenendo i gomiti leggermente flessi. Porta le maniglie a livello delle spalle e abbassale lentamente controllando il movimento."
+    }
+]
