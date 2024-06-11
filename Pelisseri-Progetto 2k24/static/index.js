@@ -2,6 +2,7 @@
 
 window.onload=function() {
     let _cmbEta=$('#cmbEta').css("width", "200px").css("color", "grey")
+    let _lblErrore=$('#lblErrore').css("color", "red").hide()
     let _h2=$('#h2')
     let _valuePeso=$('#valuePeso')
     let _valueAltezza=$('#valueAltezza')
@@ -19,6 +20,7 @@ window.onload=function() {
             html: `
                 <input id="username" class="swal2-input" placeholder="Username">
                 <input id="password" type="password" class="swal2-input" placeholder="Password">
+                <p id="lblErrore"><strong>Attenzione!</strong></p>
                 `,
             confirmButtonText: 'OK',
             preConfirm: () => {
@@ -35,6 +37,7 @@ window.onload=function() {
 
     for(let i=18; i<61; i++)
         $('<option>').text(i).appendTo(_cmbEta)
+
     let getNome=localStorage.getItem("localName")
    _h2.prop("innerHTML", _h2.prop("innerHTML")+getNome)
    //console.log($('#sliderPeso').css("left"))
@@ -45,6 +48,19 @@ window.onload=function() {
         rq.then((response)=>{
             console.log(response.data)
         })
+        rq.catch(function(err) {
+            // unauthorized
+            if (err.status == 401)  
+                _lblErrore.show()
+            else
+            {
+                errore(err) 
+                _lblErrore.show()
+            }
+        })
+        rq.then(function(response) {						
+            window.location.href = "pagina3.html"
+        })		
     }
 
     _cmbEta.on("click", function() {
@@ -57,13 +73,13 @@ window.onload=function() {
         console.log(nome, eta)
         if(nome!="" && eta!="Età")
         {
-            //window.location.href="pagina2.html"
             localStorage.setItem("localName", nome)
             localStorage.setItem("localAge", eta)
-            let rq=inviaRichiesta("POST", "/api/newUser")
+            let rq=inviaRichiesta("POST", "/api/newUser", {nome})
             rq.then((response) => {
                 console.log(response.data)
             })
+            window.location.href="pagina2.html"
         }
         else if(nome=="")
         {

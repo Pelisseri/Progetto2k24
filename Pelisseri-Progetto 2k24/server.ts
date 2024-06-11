@@ -1,9 +1,11 @@
-import _http from "http";
+import _https from "https";
 import _url from "url";
 import _fs from "fs";
 import _express from "express";
 import _dotenv from "dotenv";
 import _cors from "cors";
+import _jwt from "jsonwebtoken";
+import _bcrypt from "bcryptjs";
 import Configuration from "openai"
 import OpenAIApi from "openai"
 
@@ -24,16 +26,19 @@ const DBNAME = process.env.DBNAME;
 const connectionString: string = process.env.connectionStringAtlas;
 const app = _express();
 
-// Creazione ed avvio del server
-// app è il router di Express, si occupa di tutta la gestione delle richieste http
-//const PORT: number = parseInt(process.env.PORT);
-const PORT: number = 3000;
+// Creazione ed avvio del server https, a questo server occorre passare le chiavi RSA (pubblica e privata)
+// app è il router di Express, si occupa di tutta la gestione delle richieste https
+const HTTPS_PORT: number = parseInt(process.env.HTTPS_PORT);
 let paginaErrore;
-const server = _http.createServer(app);
+const PRIVATE_KEY = _fs.readFileSync("./keys/privateKey.pem", "utf8");
+const CERTIFICATE = _fs.readFileSync("./keys/certificate.crt", "utf8");
+const CREDENTIALS = { "key": PRIVATE_KEY, "cert": CERTIFICATE };
+const https_server = _https.createServer(CREDENTIALS, app);
+const ENCRYPTION_KEY = _fs.readFileSync("./keys/encryptionKey.txt", "utf8")
 // Il secondo parametro facoltativo ipAddress consente di mettere il server in ascolto su una delle interfacce della macchina, se non lo metto viene messo in ascolto su tutte le interfacce (3 --> loopback e 2 di rete)
-server.listen(PORT, () => {
+https_server.listen(HTTPS_PORT, () => {
     init();
-    console.log(`Il Server è in ascolto sulla porta ${PORT}`);
+    console.log(`Server HTTPS in ascolto sulla porta ${HTTPS_PORT}`);
 });
 
 function init() {
@@ -116,7 +121,54 @@ app.post("/api/newUser", async (req, res, next) => {
 app.post("/api/logIn", async (req, res, next) => {
     let username = req["body"]["user"]
     let password = req["body"]["pwd"]
+    const client = new MongoClient(connectionString)
+    await client.connect()
+    const collection = client.db(DBNAME).collection("utenti")
+    let regex = new RegExp("^" + username + "$", "i")
+    let request = collection.findOne({"nome": regex}, { "projection": { "nome": 1, "password": 1, "_id": 1 } })
+    request.then((dbUser) => {
+        if (!dbUser) {
+            res.status(401).send("Username not valid")
+        }
+        else {
+            _bcrypt.compare(password, dbUser.password, (err, success) => {
+                if (err)
+                    res.status(500).send("Bcrypt compare error " + err.message)
+                else {
+                    if (!success) {
+                        res.status(401).send("Password not valid")
+                    }
+                    else {
+                        let token = creaToken(dbUser);
+                        console.log(token)
+                        /*res.setHeader("authorization", token)
+                        res.setHeader("access-control-expose-headers", "authorization")
+                        res.send({ris: "ok"})*/
+                        res.send(dbUser)
+                    }
+                }
+            })
+        }
+    })
+    request.catch((err) => {
+        res.status(500).send("Query fallita")
+    })
+    request.finally(() => {
+        client.close()
+    })
 })
+
+function creaToken(data) {
+    let currentTime = Math.floor(new Date().getTime() / 1000)
+    let payload = {
+        "_id": data._id,
+        "username": data.username,
+        "iat": data.iat || currentTime,
+        "exp": currentTime + parseInt(process.env.durata_token)
+    }
+    let token = _jwt.sign(payload, ENCRYPTION_KEY)
+    return token
+}
 
 app.get("/api/getScheda", async (req, res, next) => {
     /*if (responseProcessed) 
