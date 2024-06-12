@@ -2,7 +2,6 @@
 
 window.onload=function() {
     let _cmbEta=$('#cmbEta').css("width", "200px").css("color", "grey")
-    let _lblErrore=$('#lblErrore').css("color", "red").hide()
     let _h2=$('#h2')
     let _valuePeso=$('#valuePeso')
     let _valueAltezza=$('#valueAltezza')
@@ -20,7 +19,7 @@ window.onload=function() {
             html: `
                 <input id="username" class="swal2-input" placeholder="Username">
                 <input id="password" type="password" class="swal2-input" placeholder="Password">
-                <p id="lblErrore"><strong>Attenzione!</strong></p>
+                <p id="lblErrore" style="display: none; color: red;"></p>
                 `,
             confirmButtonText: 'OK',
             preConfirm: () => {
@@ -41,27 +40,6 @@ window.onload=function() {
     let getNome=localStorage.getItem("localName")
    _h2.prop("innerHTML", _h2.prop("innerHTML")+getNome)
    //console.log($('#sliderPeso').css("left"))
-
-    function logIn(user, pwd) {
-        console.log(user, pwd)
-        let rq=inviaRichiesta("POST", "/api/logIn", {user, pwd})
-        rq.then((response)=>{
-            console.log(response.data)
-        })
-        rq.catch(function(err) {
-            // unauthorized
-            if (err.status == 401)  
-                _lblErrore.show()
-            else
-            {
-                errore(err) 
-                _lblErrore.show()
-            }
-        })
-        rq.then(function(response) {						
-            window.location.href = "pagina3.html"
-        })		
-    }
 
     _cmbEta.on("click", function() {
         _cmbEta.css("color", "")
@@ -137,9 +115,7 @@ window.onload=function() {
 
     _divGPT.children("textarea").on("keyup", function() {
         $('#accedi3').css("opacity", 1).on("click", function() {
-            _divGPT.hide()
-            _menu.show()
-            $('#allenamento').click()
+            mostraDati()
             getScheda()
         })
     })
@@ -157,6 +133,31 @@ window.onload=function() {
         $('#allenamento').removeClass("active")
         $('#dieta').addClass("active")
     }) 
+
+    function logIn(user, pwd) {
+        console.log(user, pwd)
+        let rq=inviaRichiesta("POST", "/api/logIn", {user, pwd})
+        rq.then((response)=>{
+            console.log(response.data)
+        })
+        rq.catch(function(err) {
+            Swal.fire({
+                title: 'Username o password errati!',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        })
+        rq.then(function(response) {
+            mostraDati()						
+            window.location.href = "pagina3.html"
+        })		
+    }
+
+    function mostraDati() {
+        _divGPT.hide()
+        _menu.show()
+        $('#allenamento').click()
+    }
 
     function getScheda() {
         let rq=inviaRichiesta("GET", `/api/getScheda`)
