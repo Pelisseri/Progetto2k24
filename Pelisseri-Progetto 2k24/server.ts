@@ -6,8 +6,10 @@ import _dotenv from "dotenv";
 import _cors from "cors";
 import _jwt from "jsonwebtoken";
 import _bcrypt from "bcryptjs";
+import _headers from "./headers.json";
 import Configuration from "openai"
 import OpenAIApi from "openai"
+import _esercizi from "./DB/esercizi.json"
 
 let responseProcessed=false
 
@@ -17,7 +19,10 @@ _dotenv.config({ "path": ".env" });
 //Configurazione ChatGPT API
 const OPENAI_ORG = process.env.gpt_key
 const OPENAI_API_KEY = process.env.gAIns_key
-const openai=new OpenAIApi({apiKey: OPENAI_API_KEY})
+const openai = new OpenAIApi({apiKey: OPENAI_API_KEY})
+const PROMPT_1 = process.env.PROMPT_1
+const PROMPT_2 = "basandoti sui dati precedenti, rispondi con una dieta settimanale in formato di vettore di JSON, comprendente"+
+                "per ogni giorno colazione, pranzo, spuntino e cena (con un alternativa equivalente per ogni pasto)"
 
 // Variabili relative a MongoDB ed Express
 import { MongoClient, ObjectId } from "mongodb";
@@ -101,7 +106,7 @@ app.get('/', (req, res) => {
 });
 
 app.post("/api/newUser", async (req, res, next) => {
-    let username=req["body"]["nome"]
+    let username=req["body"].name
     let newUser={
         nome: username,
         password: "password",
@@ -170,30 +175,26 @@ function creaToken(data) {
     return token
 }
 
-app.get("/api/getScheda", async (req, res, next) => {
-    /*if (responseProcessed) 
-        return; // Se la risposta è già stata elaborata, esci dalla funzione
-    else
-    {
-        res.writeHead(200, _headers.json);
-        res.write(JSON.stringify(_allenamento));
-        res.end();
-        responseProcessed=true
-    //}
-    let selectedCollection = req["params"].collection;
-    const client = new MongoClient(connectionString);
-    await client.connect();
-    let collection = client.db(DBNAME).collection(selectedCollection);
-    let rq = collection.find().toArray();
-    rq.then((data) => res.send(data));
-    rq.catch((err) => res.status(500).send(`Errore esecuzione query: ${err}`));
-    rq.finally(() => client.close());
+app.post("/api/newScheda", async (req, res, next) => {
+    let info=req["body"]
     const completion = await openai.chat.completions.create({
-        messages: [{"role": "system", "content": `${JSON.stringify(_braccia)} ${JSON.stringify(_gambe)} 
-                ${JSON.stringify(_petto)} ${JSON.stringify(_schiena)} ${JSON.stringify(_spalle)}`}],
-        model: "gpt-3.5-turbo",
-      });   
-    console.log(completion.choices[0]);*/
+        messages: [{"role": "system", "content": `${JSON.stringify(_esercizi)}`},
+                {"role": "system", "content": `età: ${info.eta}, sesso: ${info.sesso}, peso: ${info.peso}, altezza:
+                ${info.altezza}, obiettivo: ${info.obiettivo}`},
+                {"role": "user", "content": PROMPT_1}/*,
+                {"role": "user", "content": PROMPT_2}*/
+        ],
+        model: "gpt-3.5-turbo"
+    });   
+    let allenamento=JSON.parse(completion.choices[0].message.content)
+    console.log(allenamento)
+    const client = new MongoClient(connectionString)
+    await client.connect()
+    const collection = client.db(DBNAME).collection("utenti")
+    let rq = collection.updateOne({nome: info.nome}, {$set: {scheda: allenamento}})
+    res.writeHead(200, _headers.json)
+    res.write(JSON.stringify(allenamento))
+    res.end()
 });
 
 //********************************************************************************************//

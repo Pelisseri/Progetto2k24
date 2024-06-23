@@ -9,7 +9,7 @@ window.onload=function() {
     let _divEsercizi=$('#divEsercizi').hide()
     let _divDieta=$('#divDieta').hide()
     let _menu=$('#menu').hide()
-    let sex, height, weight
+    let name, age, sex, height, weight, goal
 
     $('.center-container').css("animation", "popUp 0.5s ease")
 
@@ -37,29 +37,24 @@ window.onload=function() {
     for(let i=18; i<61; i++)
         $('<option>').text(i).appendTo(_cmbEta)
 
-    let getNome=localStorage.getItem("localName")
-   _h2.prop("innerHTML", _h2.prop("innerHTML")+getNome)
-   //console.log($('#sliderPeso').css("left"))
-
     _cmbEta.on("click", function() {
         _cmbEta.css("color", "")
     })
  
     $('#accedi').on("click", function() {
-        let nome=$('#nome').val()
-        let eta=_cmbEta.val()
-        console.log(nome, eta)
-        if(nome!="" && eta!="Età")
+        name=$('#nome').val()
+        localStorage.setItem("localName", name)
+        age=_cmbEta.val()
+        localStorage.setItem("localAge", age)
+        if(name!="" && age!="Età")
         {
-            localStorage.setItem("localName", nome)
-            localStorage.setItem("localAge", eta)
-            let rq=inviaRichiesta("POST", "/api/newUser", {nome})
+            let rq=inviaRichiesta("POST", "/api/newUser", {name})
             rq.then((response) => {
                 console.log(response.data)
             })
             window.location.href="pagina2.html"
         }
-        else if(nome=="")
+        else if(name=="")
         {
             $('#nome').addClass("error")
             $('#nome').prop("placeholder", "Inserisci nome")
@@ -113,12 +108,13 @@ window.onload=function() {
 
     $('#accedi3').css("opacity", 0.5)
 
-    _divGPT.children("textarea").on("keyup", function() {
+    //if(_divGPT.children("textarea").val()!="")
         $('#accedi3').css("opacity", 1).on("click", function() {
+            goal=_divGPT.children("textarea").val()
+            localStorage.setItem("localGoal", goal)
             mostraDati()
-            getScheda()
+            newScheda()
         })
-    })
 
     $('#allenamento').on("click", function() {
         _divDieta.hide()
@@ -159,18 +155,26 @@ window.onload=function() {
         $('#allenamento').click()
     }
 
-    function getScheda() {
-        let rq=inviaRichiesta("GET", `/api/getScheda`)
+    function newScheda() {
+        let userInfo={
+            "nome": localStorage.getItem("localName"),
+            "eta": localStorage.getItem("localAge"),
+            "sesso": localStorage.getItem("localSex"),
+            "altezza": localStorage.getItem("localHeight"),
+            "peso": localStorage.getItem("localWeight"),
+            "obiettivo": localStorage.getItem("localGoal")
+        }
+        let rq=inviaRichiesta("POST", "/api/newScheda", userInfo)
 		rq.then((response)=>{
             console.log(response.data)
             for(let day in response.data)
             {
                 let container=$('<div>').appendTo(_divEsercizi)
                 let row = $('<div>').addClass("row").appendTo(container);
-                $('<h2>').css("color", "white").text(day).appendTo(container)
+                $('<h2>').css("color", "white").text(day).prependTo(container)
                 for(let i=0; i<response.data[day].length; i++)
                     appendCard(row, response.data[day][i])
-            } 
+            }
         })
     }
 
@@ -210,7 +214,7 @@ window.onload=function() {
             Swal.fire({
                 title: exercise.nome,
                 html: `<img src='img/${exercise.img}' style='width:200px;'> <br><br> <small>
-                        ${exercise.tutorial}<br><br>Serie: <b>${exercise.set}x${exercise.ripetizioni}<b></small>
+                        ${exercise.tutorial}<br><br>Serie: <b>${exercise.set}x${exercise.reps}<b></small>
                         <br><br> <h2 class="text-left">Log</h2> 
                         <small class="text-left" id='logDescription'>Registra i tuoi progressi e supera te stesso di volta
                         in volta.</small><br>`+logTable.prop("outerHTML")
@@ -223,7 +227,7 @@ window.onload=function() {
                 }
             })}
         ).appendTo(_body)
-        $('<small>').html("<br>Serie: <b>"+exercise.set+"x"+exercise.ripetizioni+"<b>").appendTo(_body)
+        $('<small>').html("<br>Serie: <b>"+exercise.set+"x"+exercise.reps+"<b>").appendTo(_body)
     }
 
     function aggiornaLog(reps, kg) {}
