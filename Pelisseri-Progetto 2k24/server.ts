@@ -21,8 +21,8 @@ const OPENAI_ORG = process.env.gpt_key
 const OPENAI_API_KEY = process.env.gAIns_key
 const openai = new OpenAIApi({apiKey: OPENAI_API_KEY})
 const PROMPT_1 = process.env.PROMPT_1
-const PROMPT_2 = "basandoti sui dati precedenti, rispondi con una dieta settimanale in formato di vettore di JSON, comprendente"+
-                "per ogni giorno colazione, pranzo, spuntino e cena (con un alternativa equivalente per ogni pasto)"
+const PROMPT_2 = process.env.PROMPT_2
+const EXAMPLE_2 = process.env.EXAMPLE_2
 
 // Variabili relative a MongoDB ed Express
 import { MongoClient, ObjectId } from "mongodb";
@@ -107,9 +107,10 @@ app.get('/', (req, res) => {
 
 app.post("/api/newUser", async (req, res, next) => {
     let username=req["body"].name
+    let pwd=req["body"].pwd
     let newUser={
         nome: username,
-        password: "password",
+        password: pwd,
         scheda: [],
         dieta: []
     }
@@ -181,13 +182,13 @@ app.post("/api/newScheda", async (req, res, next) => {
         messages: [{"role": "system", "content": `${JSON.stringify(_esercizi)}`},
                 {"role": "system", "content": `età: ${info.eta}, sesso: ${info.sesso}, peso: ${info.peso}, altezza:
                 ${info.altezza}, obiettivo: ${info.obiettivo}`},
-                {"role": "user", "content": PROMPT_1}/*,
-                {"role": "user", "content": PROMPT_2}*/
+                {"role": "system", "content": PROMPT_1}
         ],
-        model: "gpt-3.5-turbo"
+        model: "gpt-3.5-turbo",
+        response_format: {"type": "json_object"}
     });   
     let allenamento=JSON.parse(completion.choices[0].message.content)
-    console.log(allenamento)
+    console.log(completion.choices[0].message.content)
     const client = new MongoClient(connectionString)
     await client.connect()
     const collection = client.db(DBNAME).collection("utenti")
@@ -196,6 +197,90 @@ app.post("/api/newScheda", async (req, res, next) => {
     res.write(JSON.stringify(allenamento))
     res.end()
 });
+
+app.post("/api/newDieta", async (req, res, next) => {
+    let info=req["body"]
+    const completion = await openai.chat.completions.create({
+        messages: [{"role": "system", "content": `età: ${info.eta}, sesso: ${info.sesso}, peso: ${info.peso}, altezza:
+                ${info.altezza}, obiettivo: ${info.obiettivo}`},
+            {"role": "system", "content": `${PROMPT_2}. Segui esattamente questo esempio: ${EXAMPLE_2}`}
+        ],
+        model: "gpt-3.5-turbo",
+        response_format: {"type": "json_object"}
+    });   
+    console.log(completion.choices[0].message.content)
+    let dieta=JSON.parse(completion.choices[0].message.content)
+    const client = new MongoClient(connectionString)
+    await client.connect()
+    const collection = client.db(DBNAME).collection("utenti")
+    let rq = collection.updateOne({nome: info.nome}, {$set: {dieta: dieta}})
+    res.writeHead(200, _headers.json)
+    res.write(JSON.stringify(dieta))
+    res.end()
+})
+
+app.get("/api/getScheda/:nome", async (req, res, next) => {
+    let nome=req["params"].nome
+    const client = new MongoClient(connectionString)
+    await client.connect()
+    const collection = client.db(DBNAME).collection("utenti")
+    let rq = collection.findOne({"nome": nome}, {"projection": {"scheda":1, "dieta":1, "_id":1}})
+    rq.then((data) => res.send(data));
+    rq.catch((err) => res.status(500).send(`Errore esecuzione query: ${err}`));
+    rq.finally(() => client.close());
+})
+
+app.post("/api/aggiornaLog", async (req, res, next) => {
+    let username=req["body"].username
+    let nome=req["body"].nome
+    let log=req["body"].log
+    const client = new MongoClient(connectionString)
+    await client.connect()
+    const collection = client.db(DBNAME).collection("utenti")
+    let rq = collection.updateOne({
+        "nome": username,
+        $or: [
+            { "scheda.Giorno 1": { $elemMatch: { "nome": nome } } },
+            { "scheda.Giorno 2": { $elemMatch: { "nome": nome } } },
+            { "scheda.Giorno 3": { $elemMatch: { "nome": nome } } }
+        ]
+        },
+        {
+            $set: {"scheda.Giorno 1.$[elem].log": log,
+                "scheda.Giorno 2.$[elem].log": log
+            }
+        },
+        {
+            arrayFilters: [{ "elem.nome": nome }]
+        }
+    )
+})
+
+app.get("/api/getLog/:username/:nome", async (req, res, next) => {
+    let username=req["body"].username
+    let nome=req["body"].nome
+    const client = new MongoClient(connectionString)
+    await client.connect()
+    const collection = client.db(DBNAME).collection("utenti")
+    let rq = collection.findOne(
+        {
+            "nome": username,
+            $or: [
+                { "scheda.Giorno 1": { $elemMatch: { "nome": nome } } },
+                { "scheda.Giorno 2": { $elemMatch: { "nome": nome } } },
+                { "scheda.Giorno 3": { $elemMatch: { "nome": nome } } }
+            ]
+        },
+        {
+            "projection": {"scheda.Giorno 1.$[elem].log": 1,
+            "scheda.Giorno 2.$[elem].log": 1,
+            "scheda.Giorno 3.$[elem].log": 1,
+            "_id": 1}
+        });
+    rq.then((data) => res.send(data));
+    rq.catch((err) => res.status(500).send(`Errore esecuzione query: ${err}`));
+    rq.finally(() => client.close());
+})
 
 //********************************************************************************************//
 // Default route e gestione degli errori

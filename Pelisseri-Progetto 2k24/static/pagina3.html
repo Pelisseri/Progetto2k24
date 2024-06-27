@@ -41,36 +41,7 @@
             </div> 
             <div id="divDieta">
                 <table>
-                    <tbody>
-                        <tr>
-                            <td>Lunedì</td>
-                            <td class="arrow">⌄</td>
-                        </tr>
-                        <tr>
-                            <td>Martedì</td>
-                            <td  class="arrow">⌄</td>
-                        </tr>
-                        <tr>
-                            <td>Mercoledì</td>
-                            <td class="arrow">⌄</td>
-                        </tr>
-                        <tr>
-                            <td>Giovedì</td>
-                            <td  class="arrow">⌄</td>
-                        </tr>
-                        <tr>
-                            <td>Venerdi</td>
-                            <td class="arrow">⌄</td>
-                        </tr>
-                        <tr>
-                            <td>Sabato</td>
-                            <td class="arrow">⌄</td>
-                        </tr>
-                        <tr>
-                            <td>Domenica</td>
-                            <td  class="arrow">⌄</td>
-                        </tr>
-                    </tbody>
+                    <tbody id="dietTable"></tbody>
                 </table>
             </div>
         </main>
@@ -135,15 +106,10 @@
             border-top: 1px solid gray;
         }
 
-        td {
+        .dietDay {
             font-size: 20px;
             font-weight: bold;
-        }
-
-        .arrow {
-            font-size: 15px;
-            color: gray;
-            padding-left: 40px;
+            width: 30%;
         }
 
         .card {
